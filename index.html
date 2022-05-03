@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body >
+<body>
     <header>
         <h2>Weather Dashboard</h2>
     </header>
@@ -19,28 +19,27 @@
         <section class="col-3 ml-3">
             <form class="d-flex flex-column">
                 <h2>Search for a City:</h2>
-                <input type="text">
-                <button>Search</button>
+                <input class="form-control mb-2" type="text">
+                <button class="btn btn-primary">Search</button>
             </form>
 
-            <div class="d-flex flex-column">
-                <button>Austin</button>
-                <button>Chicago</button>
-                <button>New York</button>
-                <button>Orlando</button>
-                <button>San Francisco</button>
-                <button>Seatle</button>
-                <button>Denver</button>
-                <button>Atlanta</button>
+            <div class="d-flex flex-column cities">
+                <button class="btn btn-secondary">Austin</button>
+                <button class="btn btn-secondary">Chicago</button>
+                <button class="btn btn-secondary">New York</button>
+                <button class="btn btn-secondary">Orlando</button>
+                <button class="btn btn-secondary">San Francisco</button>
+                <button class="btn btn-secondary">Seatle</button>
+                <button class="btn btn-secondary">Denver</button>
+                <button class="btn btn-secondary">Atlanta</button>
             </div>
         </section>
 
-        <section class="row col-8">
-            <div class="col-12">
-                box
+        <section class="row col-8 align-content-space-between">
+            <div class="col-12 d-flex flex-column" id="today">
             </div>
 
-            <div class="col-12">
+            <div class="col-12" id="5-day">
                 <h2>5-Day Forcast:</h2>
             </div>
         </section>

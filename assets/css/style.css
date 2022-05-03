@@ -1,3 +1,28 @@
 body {
     margin: 0;
 }
+
+header {
+    background: linear-gradient(50deg, blue, darkblue);
+    text-align: center;
+    color: white;
+}
+
+form {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid lightgrey;
+}
+
+.cities button {
+    margin-bottom: 15px;
+}
+
+#today {
+    height: 25%;
+    border: 2px solid black;
+}
+
+.align-content-space-between {
+    align-content: flex-start;
+}
