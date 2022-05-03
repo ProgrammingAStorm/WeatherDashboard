@@ -26,3 +26,7 @@ form {
 .align-content-space-between {
     align-content: flex-start;
 }
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
