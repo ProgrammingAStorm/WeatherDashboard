@@ -14,7 +14,7 @@ form {
     border-bottom: 3px solid lightgrey;
 }
 
-.cities button {
+#search-history button {
     margin-bottom: 15px;
 }
 
