@@ -1,6 +1,9 @@
+//API key for OpenWeather
 const APIKEY = "a08c74698b6f4ec795426b447ed75b26";
+//Holds on to loaded history
 var searchHistory = [];
 
+//Adds search history every time a search is made.
 function addHistory(name, lon, lat) {
     if(searchHistory.length === 8) {
         searchHistory.shift();
@@ -30,6 +33,7 @@ function addHistory(name, lon, lat) {
         saveHistory();
     }
 }
+//Fetches weather data from OpenWeather
 function getWeather(name, lon, lat) {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=imperial&appid=${APIKEY}`).then(function(response) {
         response.json().then(function(data) {
@@ -98,9 +102,11 @@ function getWeather(name, lon, lat) {
         })
     })
 }
+//Saves search history to local storage
 function saveHistory() {
     localStorage.setItem("history", JSON.stringify(searchHistory));
 }
+//Loads history from local storage
 function loadHistory() {
     searchHistory = JSON.parse(localStorage.getItem("history"))
 
@@ -128,8 +134,9 @@ function loadHistory() {
     }
 }
 
+//Loads the history at the start to have it fresh and usable
 loadHistory();
-
+//USGC search API method that creates the search widget
 search_api.create("search", {
     on_result: function(o){
         addHistory(o.result.properties.Label, o.result.properties.Lon, o.result.properties.Lat);
@@ -137,7 +144,9 @@ search_api.create("search", {
         getWeather(o.result.properties.Label, o.result.properties.Lon, o.result.properties.Lat)
     }
 })
-
+//Sets the listeners for the search history buttons.
+//NOTE: when the buttons are clicked they call getWeather but not addHistory.
+//That means the weather is fetched and displayed, but the buttons do not update.
 $("#search-history").on("click", "button", function(event) {
     getWeather(
         searchHistory[$(this).attr("data-pos")].name,
